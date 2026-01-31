@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+
+    <title>Free Kundali Request | AstroVision</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Request a free personalised Kundali analysis by expert astrologers at AstroVision. Accurate birth chart analysis for marriage, career, health and life guidance.">
+    <meta name="keywords" content="Free Kundali, Birth Chart, Horoscope, Astrology, Kundali Analysis, AstroVision">
+    <meta name="author" content="AstroVision">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="container nav-content">
+        <img src="{% static 'logo.png' %}" class="nav-logo" alt="AstroVision Logo">
+
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="/#experts">Astrologers</a>
+            <a href="/#services">Services</a>
+            <a href="/#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<section class="section">
+    <div class="container">
+
+        <h2 class="section-title">Free Kundali Request</h2>
+        <p class="section-sub">
+            Enter accurate birth details to receive a personalised Kundali prepared by our expert astrologers.
+        </p>
+
+        <!-- FREE KUNDALI FORM -->
+        <form id="kundaliForm" class="contact-form">
+
+            {% csrf_token %}
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Full Name*"
+                required
+            >
+
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="WhatsApp Number*"
+                required
+            >
+
+            <label for="dob">Date of Birth*</label>
+            <input
+                type="date"
+                id="dob"
+                name="dob"
+                required
+            >
+
+            <label for="tob">Time of Birth*</label>
+            <input
+                type="time"
+                id="tob"
+                name="tob"
+                required
+            >
+
+            <input
+                type="text"
+                id="pob"
+                name="pob"
+                placeholder="Place of Birth*"
+                required
+            >
+
+            <select id="gender" name="gender" required>
+                <option value="">Gender*</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <select id="purpose" name="purpose" required>
+                <option value="">Purpose of Kundali*</option>
+                <option value="Marriage">Marriage</option>
+                <option value="Career">Career</option>
+                <option value="Health">Health</option>
+                <option value="Finance">Finance</option>
+                <option value="General Life">General Life</option>
+            </select>
+
+            <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Specific Questions (Optional)"
+            ></textarea>
+
+            <button type="submit" class="btn-primary full">
+                Submit Free Kundali Request
+            </button>
+
+        </form>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© <span id="year"></span> AstroVision. All Rights Reserved.</p>
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script src="{% static 'kundali.js' %}"></script>
+</body>
+</html>

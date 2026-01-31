@@ -1,0 +1,370 @@
+/* ================================
+   GLOBAL RESET & BASE
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Georgia", "Times New Roman", serif;
+    background: #FFF6E5;
+    color: #3B2A2A;
+    line-height: 1.75;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ================================
+   NAVBAR
+================================ */
+.navbar {
+    background: linear-gradient(90deg, #6F0B0B, #8F1A1A);
+    border-bottom: 3px solid #D4AF37;
+    padding: 14px 0;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 62px;
+}
+
+.nav-links a {
+    color: #FFF6E5;
+    text-decoration: none;
+    margin-left: 24px;
+    font-weight: bold;
+    font-size: 16px;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #D4AF37;
+    left: 0;
+    bottom: -6px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 26px;
+    color: #FFF6E5;
+}
+
+/* ================================
+   HERO SECTION
+================================ */
+.hero {
+    background: radial-gradient(
+        circle at right,
+        #9B1C1C,
+        #6F0B0B
+    );
+    padding: 100px 0;
+    color: #FFF6E5;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 40px;
+    margin-bottom: 18px;
+    line-height: 1.3;
+}
+
+.hero-sub {
+    font-size: 19px;
+    margin-bottom: 28px;
+    max-width: 520px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 18px;
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, #D4AF37, #F1D06A);
+    color: #6F0B0B;
+    padding: 13px 32px;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    box-shadow: 0 6px 18px rgba(212,175,55,0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 2px solid #D4AF37;
+    color: #FFF6E5;
+    padding: 13px 32px;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.btn-outline:hover {
+    background: rgba(212,175,55,0.15);
+}
+
+/* ===== HERO LOGO  ===== */
+
+.hero-grid {
+    align-items: center;
+}
+
+.hero-logo-box {
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-logo {
+    width: 500px; 
+    height: auto;
+    position: relative;
+    z-index: 2;
+
+    /* Soft glow */
+    filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.55))
+            drop-shadow(0 0 35px rgba(212, 175, 55, 0.35));
+
+    animation: logoGlow 4s ease-in-out infinite;
+}
+
+/* Pulsing spiritual glow */
+@keyframes logoGlow {
+    0% {
+        filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.45))
+                drop-shadow(0 0 24px rgba(212, 175, 55, 0.25));
+        transform: scale(1);
+    }
+    50% {
+        filter: drop-shadow(0 0 22px rgba(212, 175, 55, 0.85))
+                drop-shadow(0 0 45px rgba(212, 175, 55, 0.55));
+        transform: scale(1.03);
+    }
+    100% {
+        filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.45))
+                drop-shadow(0 0 24px rgba(212, 175, 55, 0.25));
+        transform: scale(1);
+    }
+}
+
+/* ================================
+   SECTION COMMON
+================================ */
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    color: #7A0C0C;
+    margin-bottom: 12px;
+}
+
+.section-sub {
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 45px;
+}
+
+/* ================================
+   ASTROLOGERS
+================================ */
+.experts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+}
+
+.expert-card {
+    background: #FFFFFF;
+    border: 2px solid #D4AF37;
+    padding: 28px;
+    text-align: center;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.expert-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+
+.expert-photo {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    margin-bottom: 14px;
+    border: 3px solid #7A0C0C;
+}
+
+.expert-exp {
+    font-style: italic;
+    color: #9B1C1C;
+    margin-bottom: 10px;
+}
+
+.btn-secondary {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 9px 20px;
+    background: #7A0C0C;
+    color: #FFF6E5;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ================================
+   SERVICES
+================================ */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+}
+
+.service-card {
+    background: #FFFFFF;
+    border: 2px solid #D4AF37;
+    padding: 26px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+}
+
+.service-card h3 {
+    color: #7A0C0C;
+    margin-bottom: 10px;
+}
+
+/* ================================
+   PRICING
+================================ */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+}
+
+.price-card {
+    background: #FFFFFF;
+    border: 2px solid #D4AF37;
+    padding: 26px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #9B1C1C;
+}
+
+.price-card.highlight {
+    background: #FFF6E5;
+    border: 3px solid #7A0C0C;
+}
+
+/* ================================
+   CONTACT
+================================ */
+.contact-form {
+    max-width: 440px;
+    margin: auto;
+    display: grid;
+    gap: 16px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid #7A0C0C;
+    border-radius: 6px;
+}
+
+.btn-pay {
+    margin: 28px auto 0;
+    background: linear-gradient(135deg, #9B1C1C, #7A0C0C);
+    color: #FFF6E5;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+}
+
+/* ================================
+   FOOTER
+================================ */
+.footer {
+    background: #7A0C0C;
+    color: #D4AF37;
+    text-align: center;
+    padding: 22px;
+    margin-top: 70px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 900px) {
+    .hero-grid {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-logo {
+        position: static;
+        margin-top: 40px;
+        width: 150px;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}

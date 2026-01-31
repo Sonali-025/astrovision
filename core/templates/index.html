@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstroVision — Vedic Astrology & Tarot Guidance</title>
+
+    <!-- SEO META -->
+    <meta name="description" content="Get accurate Vedic astrology, Kundali reading, tarot guidance, numerology, angel reading and vastu consultation online from 7+ years experienced astrologers — Mr. Mayank Vijay Kanth & Ms. Nayana Dey. Trusted, confidential, result-oriented.">
+    <meta name="keywords" content="AstroVision, vedic astrology, kundali reading, tarot, angel guidance, vastu, numerology, best astrologer online, accurate prediction, horoscope, kundali matching">
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+    <div class="container nav-content">
+        <img src="{% static 'logo.png' %}" class="nav-logo" alt="AstroVision Logo">
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#experts">Astrologers</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+</header>
+
+<!-- ================= HERO SECTION ================= -->
+<section id="home" class="hero">
+    <div class="container hero-grid">
+        <div class="hero-text">
+            <p class="shlok">
+                <b> “ कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ” </b>
+            </p>
+
+            <h1>Transform Your Life with Accurate Vedic Astrology & Tarot Guidance</h1>
+            <p class="hero-sub">
+                Get personalized online consultations from 7+ years experienced experts — trusted, confidential, and results-oriented.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Book Consultation</a>
+                <a href="/kundali/" class="btn-outline">Free Kundali Request</a>
+            </div>
+        </div>
+
+        <div class="hero-logo-box">
+            <div class="hero-glow"></div>
+            <img src="{% static 'logo.png' %}" class="hero-logo" alt="AstroVision Logo">
+        </div>
+    </div>
+</section>
+
+<!-- ================= ASTROLOGERS ================= -->
+<section id="experts" class="section">
+    <div class="container">
+        <h2 class="section-title">Meet Your Astrologers</h2>
+        <p class="section-sub">Highly experienced, trusted & result-oriented.</p>
+
+        <div class="experts-grid">
+            <div class="expert-card">
+                <img src="{% static 'images/mayank.jpg' %}" class="expert-photo" alt="Astrologer Mayank Vijay Kanth">
+                <h3>Mr. Mayank Vijay Kanth</h3>
+                <p class="expert-exp">Vedic Astrologer • 7+ Years Experience</p>
+                <p class="expert-skills">Kundali • Palm Reading • Numerology • Vastu • Nakshatra • Life Guidance</p>
+                <a href="https://wa.me/918789712246" target="_blank" class="btn-secondary">WhatsApp</a>
+            </div>
+
+            <div class="expert-card">
+                <img src="{% static 'images/nayana.jpeg' %}" class="expert-photo" alt="Astrologer Nayana Dey">
+                <h3>Mrs. Nayana Dey</h3>
+                <p class="expert-exp">Tarot & Angel Guide • 3+ Years Experience</p>
+                <p class="expert-skills">Tarot • Angel Guidance • Remedies • Future Prediction</p>
+                <a href="https://wa.me/919706438059" target="_blank" class="btn-secondary">WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="section">
+    <div class="container">
+        <h2 class="section-title">Our Services</h2>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <h3>Kundali Analysis</h3>
+                <p>
+                    In-depth birth chart analysis covering career, marriage, health, finances,
+                    planetary strengths, weaknesses, and personalized remedies.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Tarot Reading</h3>
+                <p>
+                    Intuitive tarot guidance to gain clarity on relationships, career decisions,
+                    emotional blocks, and future possibilities.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Numerology</h3>
+                <p>
+                    Decode your life path, destiny number, name vibrations, and relationship
+                    compatibility through numerological insights.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Palm Reading</h3>
+                <p>
+                    Detailed palm analysis revealing personality traits, career growth,
+                    relationship patterns, and life purpose.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Angel Guidance</h3>
+                <p>
+                    Receive divine messages from angels for emotional healing,
+                    spiritual alignment, and decision-making clarity.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Dosh & Remedies</h3>
+                <p>
+                    Identification of Kaal Sarp, Mangal, Pitra and other doshas,
+                    along with effective spiritual and astrological remedies.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Gemstone Remedies</h3>
+                <p>
+                    Horoscope-based gemstone recommendations to strengthen planetary
+                    influences and bring balance, success, and protection.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Rudraksha Consultation</h3>
+                <p>
+                    Selection of authentic Rudraksha beads according to your planetary
+                    alignment for peace, focus, and spiritual growth.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Crystal & Yantras</h3>
+                <p>
+                    Energized crystals and sacred yantras designed to enhance positivity,
+                    remove blockages, and attract abundance.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Home Remedies</h3>
+                <p>
+                    Simple, practical remedies using everyday items to reduce negativity,
+                    improve harmony, and invite positive energy.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Crystal Remedies</h3>
+                <p>
+                    Healing techniques using crystal energies to balance emotions,
+                    improve relationships, and support personal well-being.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Mantra Remedies</h3>
+                <p>
+                    Personalized mantra suggestions and chanting methods to remove obstacles,
+                    enhance focus, and invite divine blessings.
+                </p>
+            </div>
+
+            <div class="service-card highlight">
+                <h3>Vishesh Puja</h3>
+                <p>
+                    Special pujas performed at powerful spiritual locations such as
+                    Kashi, Ujjain, and Trimbakeshwar for deep karmic cleansing.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Ho'oponopono Prayer</h3>
+                <p>
+                    A sacred Hawaiian healing practice for emotional release,
+                    forgiveness, inner peace, and mental clarity.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Vastu Consultation</h3>
+                <p>
+                    Vastu analysis for homes and workplaces to correct energy imbalances
+                    and promote prosperity, health, and harmony.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="section">
+    <div class="container">
+        <h2 class="section-title">Book Your Consultation</h2>
+        <p class="section-sub">Fill the form — our astrologers will contact you personally.</p>
+
+        <form id="consultForm" class="contact-form">
+            {% csrf_token %}
+
+            <input type="text" id="name" placeholder="Full Name*" required>
+            <input type="tel" id="phone" placeholder="WhatsApp Number*" required>
+            <input type="date" id="date" required>
+            <input type="time" id="time" required>
+            <input type="text" id="pob" placeholder="Place of Birth*" required>
+
+            <select id="gender" required>
+                <option value="">Gender*</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+
+            <select id="service" required>
+                <option value="">Select Service*</option>
+                <option>Kundali Analysis</option>
+                <option>Palm Reading</option>
+                <option>Numerology</option>
+                <option>Spritiual Guidance</option>
+                <option>Vastu Consultation</option>
+                <option>Tarot Reading</option>
+                <option>Tarot Guidance (Combined)</option>
+                <option>Yes / No Answers</option>
+                <option>Angel Oracle Reading</option>
+                <option>Akashic Record Reading</option>
+                <option>Angel Guidance (Combined)</option>
+                <option>Tarot + Angel Overall Package</option>
+            </select>
+
+            <textarea id="message" rows="4" placeholder="Your Question / Concern"></textarea>
+
+            <button type="button" id="payButton" class="btn-pay">
+                Pay & Book Consultation
+            </button>
+        </form>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© <span id="year"></span> AstroVision. All Rights Reserved.</p>
+</footer>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+    const RAZORPAY_KEY = "{{ RAZORPAY_KEY_ID }}";
+</script>
+
+<script src="{% static 'main.js' %}"></script>
+<script src="{% static 'payment.js' %}"></script>
+
+</body>
+</html>
