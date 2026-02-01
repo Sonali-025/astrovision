@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-%-p-&1y@@qrptte9nev@w)=6=$=b@xe7&ra)@+sccrnmp1qocw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["astrovision-production.up.railway.app",
+    ".up.railway.app",
+    "localhost",
+    "127.0.0.1",]
 
 
 # Application definition
