@@ -156,11 +156,12 @@ def confirm_booking(request):
         astrologer=astrologer
     )
 
-    # 🔐 SAFE EMAIL (won't crash payment)
-    try:
-        send_mail(
-            "New Paid Consultation - AstroVision",
-            f"""
+    # 🔐 SAFE EMAIL (Railway-safe)
+    if settings.EMAIL_ENABLED:
+        try:
+            send_mail(
+                "New Paid Consultation - AstroVision",
+                f"""
 Name: {name}
 Phone: {phone}
 DOB: {dob}
@@ -175,12 +176,12 @@ Order ID: {razorpay_order_id}
 Message:
 {message}
 """,
-            settings.DEFAULT_FROM_EMAIL,
-            [admin_email],
-            fail_silently=True
-        )
-    except Exception as e:
-        print("Paid email error:", e)
+                settings.DEFAULT_FROM_EMAIL,
+                [admin_email],
+                fail_silently=True
+            )
+        except Exception as e:
+            print("Paid email skipped:", e)
 
     return JsonResponse({"status": "success"})
 
@@ -204,11 +205,12 @@ def submit_kundali(request):
             message=data.get("message", "")
         )
 
-        # 🔐 SAFE EMAIL (won't crash form)
-        try:
-            send_mail(
-                "New FREE Kundali Request - AstroVision",
-                f"""
+        # 🔐 SAFE EMAIL (Railway-safe)
+        if settings.EMAIL_ENABLED:
+            try:
+                send_mail(
+                    "New FREE Kundali Request - AstroVision",
+                    f"""
 Name: {data['full_name']}
 WhatsApp: {data['whatsapp']}
 DOB: {data['dob']}
@@ -220,11 +222,12 @@ Purpose: {data['purpose']}
 Message:
 {data.get('message', '')}
 """,
-                settings.DEFAULT_FROM_EMAIL,
-                [MAYANK_EMAIL],
-                fail_silently=True
-            )
-        except Exception as e:
-            print("Kundali email error:", e)
+                    settings.DEFAULT_FROM_EMAIL,
+                    [MAYANK_EMAIL],
+                    fail_silently=True
+                )
+            except Exception as e:
+                print("Kundali email skipped:", e)
 
         return JsonResponse({"status": "success"})
+
