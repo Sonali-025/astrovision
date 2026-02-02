@@ -7,6 +7,7 @@ from django.core.mail import send_mail
 from datetime import datetime
 import json
 import razorpay
+import logging
 
 from .models import ConsultationOrder, KundaliRequest
 
@@ -155,9 +156,11 @@ def confirm_booking(request):
         astrologer=astrologer
     )
 
-    send_mail(
-        "New Paid Consultation - AstroVision",
-        f"""
+    # 🔐 SAFE EMAIL (won't crash payment)
+    try:
+        send_mail(
+            "New Paid Consultation - AstroVision",
+            f"""
 Name: {name}
 Phone: {phone}
 DOB: {dob}
@@ -172,12 +175,15 @@ Order ID: {razorpay_order_id}
 Message:
 {message}
 """,
-        settings.DEFAULT_FROM_EMAIL,
-        [admin_email],
-        fail_silently=False
-    )
+            settings.DEFAULT_FROM_EMAIL,
+            [admin_email],
+            fail_silently=True
+        )
+    except Exception as e:
+        print("Paid email error:", e)
 
     return JsonResponse({"status": "success"})
+
 
 # ===============================
 # FREE KUNDALI REQUEST
@@ -198,9 +204,11 @@ def submit_kundali(request):
             message=data.get("message", "")
         )
 
-        send_mail(
-            "New FREE Kundali Request - AstroVision",
-            f"""
+        # 🔐 SAFE EMAIL (won't crash form)
+        try:
+            send_mail(
+                "New FREE Kundali Request - AstroVision",
+                f"""
 Name: {data['full_name']}
 WhatsApp: {data['whatsapp']}
 DOB: {data['dob']}
@@ -212,9 +220,11 @@ Purpose: {data['purpose']}
 Message:
 {data.get('message', '')}
 """,
-            settings.DEFAULT_FROM_EMAIL,
-            [MAYANK_EMAIL],
-            fail_silently=False
-        )
+                settings.DEFAULT_FROM_EMAIL,
+                [MAYANK_EMAIL],
+                fail_silently=True
+            )
+        except Exception as e:
+            print("Kundali email error:", e)
 
         return JsonResponse({"status": "success"})
