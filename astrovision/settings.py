@@ -29,6 +29,10 @@ ALLOWED_HOSTS = ["astrovision-production.up.railway.app",
     ".up.railway.app",
     "localhost",
     "127.0.0.1",]
+CSRF_TRUSTED_ORIGINS = [
+    "https://astrovision-production.up.railway.app",
+]
+
 
 
 # Application definition
