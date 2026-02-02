@@ -10,19 +10,32 @@ import razorpay
 import logging
 from .models import ConsultationOrder, KundaliRequest
 import threading
-from django.core.mail import send_mail
+from django.http import HttpResponse
 
-def send_email_async(subject, message, from_email, to_list):
-    try:
-        send_mail(
-            subject,
-            message,
-            from_email,
-            to_list,
-            fail_silently=True,
-        )
-    except Exception as e:
-        print("Email error:", e)
+#def send_email_async(subject, message, from_email, to_list):
+ #   try:
+  #      send_mail(
+   #         subject,
+    #        message,
+     #       from_email,
+      #      to_list,
+      #      fail_silently=True,
+       # )
+    #except Exception as e:
+     #   print("Email error:", e)
+
+
+
+def test_sendgrid(request):
+    send_mail(
+        subject="SENDGRID DIRECT TEST",
+        message="If you receive this, SendGrid SMTP is working.",
+        from_email="sonalids250@gmail.com",
+        recipient_list=["sonalids250@gmail.com"],
+        fail_silently=False,
+    )
+    return HttpResponse("SendGrid test executed")
+
 
 
 # ===============================
