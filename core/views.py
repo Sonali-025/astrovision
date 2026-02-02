@@ -80,7 +80,7 @@ def kundali_success(request):
 # CREATE RAZORPAY ORDER
 # ===============================
 @require_POST
-@csrf_protect
+@csrf_exempt
 def create_order(request):
     amount = int(request.POST.get("amount", 0))
     if amount <= 0:
