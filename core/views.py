@@ -8,8 +8,22 @@ from datetime import datetime
 import json
 import razorpay
 import logging
-
 from .models import ConsultationOrder, KundaliRequest
+import threading
+from django.core.mail import send_mail
+
+def send_email_async(subject, message, from_email, to_list):
+    try:
+        send_mail(
+            subject,
+            message,
+            from_email,
+            to_list,
+            fail_silently=True,
+        )
+    except Exception as e:
+        print("Email error:", e)
+
 
 # ===============================
 # RAZORPAY CLIENT
@@ -156,10 +170,11 @@ def confirm_booking(request):
         astrologer=astrologer
     )
 
-    # 🔐 SAFE EMAIL (Railway-safe)
+    # 🔐 SAFE EMAIL (ASYNC, Railway-safe)
     if settings.EMAIL_ENABLED:
-        try:
-            send_mail(
+        threading.Thread(
+            target=send_email_async,
+            args=(
                 "New Paid Consultation - AstroVision",
                 f"""
 Name: {name}
@@ -178,12 +193,12 @@ Message:
 """,
                 settings.DEFAULT_FROM_EMAIL,
                 [admin_email],
-                fail_silently=True
-            )
-        except Exception as e:
-            print("Paid email skipped:", e)
+            ),
+            daemon=True
+        ).start()
 
     return JsonResponse({"status": "success"})
+
 
 
 # ===============================
@@ -205,10 +220,11 @@ def submit_kundali(request):
             message=data.get("message", "")
         )
 
-        # 🔐 SAFE EMAIL (Railway-safe)
+        # 🔐 SAFE EMAIL (ASYNC, Railway-safe)
         if settings.EMAIL_ENABLED:
-            try:
-                send_mail(
+            threading.Thread(
+                target=send_email_async,
+                args=(
                     "New FREE Kundali Request - AstroVision",
                     f"""
 Name: {data['full_name']}
@@ -224,10 +240,8 @@ Message:
 """,
                     settings.DEFAULT_FROM_EMAIL,
                     [MAYANK_EMAIL],
-                    fail_silently=True
-                )
-            except Exception as e:
-                print("Kundali email skipped:", e)
+                ),
+                daemon=True
+            ).start()
 
         return JsonResponse({"status": "success"})
-
