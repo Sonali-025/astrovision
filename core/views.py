@@ -61,7 +61,7 @@ TAROT_SERVICES = [
     "Tarot + Angel Overall Package",
 ]
 
-NAYANA_EMAIL = "mausam089@gmail.com"
+NAYANA_EMAIL = "astrotarotnayana@gmail.com"
 MAYANK_EMAIL = "aiastrovision@gmail.com"
 BUSINESS_EMAIL = "aiastrovision@gmail.com"
 
