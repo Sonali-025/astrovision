@@ -26,19 +26,6 @@ def send_email_async(subject, message, from_email, to_list):
         print("Email error:", e)
 
 
-
-def test_sendgrid(request):
-    send_mail(
-        subject="SENDGRID DIRECT TEST",
-        message="If you receive this, SendGrid SMTP is working.",
-        from_email="sonalids250@gmail.com",
-        recipient_list=["sonalids250@gmail.com"],
-        fail_silently=False,
-    )
-    return HttpResponse("SendGrid test executed")
-
-
-
 # ===============================
 # RAZORPAY CLIENT
 # ===============================
