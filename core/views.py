@@ -12,6 +12,21 @@ from .models import ConsultationOrder, KundaliRequest
 import threading
 
 
+from django.http import HttpResponse
+from django.core.mail import send_mail
+
+def test_email_plain(request):
+    send_mail(
+        "SENDGRID FINAL TEST",
+        "If you receive this, SendGrid works.",
+        "sonalids250@gmail.com",
+        ["sonalids250@gmail.com"],
+        fail_silently=False,
+    )
+    return HttpResponse("EMAIL SENT")
+
+
+
 
 def send_email_async(subject, message, from_email, to_list):
     try:

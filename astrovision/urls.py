@@ -18,6 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from core import views
+from core.views import test_email_plain
 
 
 
@@ -43,6 +44,9 @@ urlpatterns = [
       # Payment result pages
     path("payment-success/", views.payment_success),
     path("payment-failed/", views.payment_failed),
+
+    path("email-test/", test_email_plain),
+
    
 
 
