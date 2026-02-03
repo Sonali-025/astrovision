@@ -18,8 +18,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from core import views
-from .views import test_sendgrid
- 
+
+
+
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -41,11 +43,13 @@ urlpatterns = [
       # Payment result pages
     path("payment-success/", views.payment_success),
     path("payment-failed/", views.payment_failed),
-    
+   
 
 
 
-     path("test-sendgrid/", test_sendgrid),
+
+
+
 
     
 ]

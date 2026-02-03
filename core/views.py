@@ -10,19 +10,20 @@ import razorpay
 import logging
 from .models import ConsultationOrder, KundaliRequest
 import threading
-from django.http import HttpResponse
 
-#def send_email_async(subject, message, from_email, to_list):
- #   try:
-  #      send_mail(
-   #         subject,
-    #        message,
-     #       from_email,
-      #      to_list,
-      #      fail_silently=True,
-       # )
-    #except Exception as e:
-     #   print("Email error:", e)
+
+
+def send_email_async(subject, message, from_email, to_list):
+    try:
+        send_mail(
+            subject,
+            message,
+            from_email,
+            to_list,
+            fail_silently=True,
+        )
+    except Exception as e:
+        print("Email error:", e)
 
 
 
