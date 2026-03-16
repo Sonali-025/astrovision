@@ -3,7 +3,6 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.conf import settings
-from django.core.mail import send_mail
 from datetime import datetime
 import json
 import razorpay
